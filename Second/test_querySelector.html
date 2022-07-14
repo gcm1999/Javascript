@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>选择器</title>
+    <style>
+      li {
+        width: 20px;
+        height: 20px;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="test">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <script>
+      //   var li = document.querySelectorAll(".test > li");
+      var li = document.querySelectorAll(".test li");
+      console.log(li);
+      li[4].style.background = "blue";
+      var test = document.querySelector(".test");
+      test.addEventListener("click", function (e) {
+        for(i=0; i<li.length; i++){
+            li[i].style.background = 'pink'
+        }
+        e.target.style.background = "blue";
+      });
+    </script>
+  </body>
+</html>

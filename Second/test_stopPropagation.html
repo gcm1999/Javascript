@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>阻止冒泡</title>
+    <style>
+      .fa {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+      }
+      .son {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fa">
+      <div class="son"></div>
+    </div>
+    <script>
+      var fa = document.querySelector(".fa");
+      var son = document.querySelector(".son");
+      fa.addEventListener("click", function (e) {
+        alert("fa");
+        e.stopPropagation();
+      });
+      son.addEventListener("click", function () {
+        alert("son");
+      });
+      document.addEventListener("click", function () {
+        alert("document");
+      });
+    </script>
+  </body>
+</html>
