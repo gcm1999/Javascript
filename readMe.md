@@ -1,4 +1,4 @@
-### DOM
+## DOM
 + #### getElementsById()
 + #### getElementsByTagName()
     document.getElementsByTagName('标签名')，返回伪数组
@@ -38,3 +38,27 @@
 + #### 阻止冒泡
         e.stopPropagation()     
         e.cancelBubble=true     非标准
+
+## BOM
+
+### 窗口（页面）加载事件
++   #### window.onload
+        窗口（页面）加载事件，当文档内容（包括dom元素，图片，flash,css等）完全加载完触发该事件
+        只能写一次，有多个以最后一个为准
+        如果使用addEventListener则没有限制
+
++   #### DOMContenLoaded
+        dom加载完毕触发事件，不包含图片，flash,css等，加载速度比load快
+
++ #### window.onresize()
+        调整窗口大小事件,窗口大小发生像素变化时触发
+
+### 定时器
++ #### window.setTimeout(调用函数,延迟毫秒数)
+        延迟时间到了调用函数
+
++ #### window.clearTimeout(timeoutID)
+
++ #### window.setInterval(调用函数,间隔时间)
+        每隔间隔时间调用一次函数
+

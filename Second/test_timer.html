@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计时器</title>
+    <style>
+      img {
+        width: 500px;
+      }
+      div{
+        width: 500px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div><img src="../imgs/ak.webp" alt="" /></div>
+    <script>
+      //   setTimeout(function () {
+      //     alert("五秒到了");
+      //   },5000);
+      var pic = document.querySelector("img");
+      setInterval(function () {
+        // console.log(pic.src);
+        if (pic.src == "http://127.0.0.1:5500/imgs/ak.webp") {
+            console.log(pic.src)
+          pic.src = "../imgs/ys.webp";
+           console.log(pic.src)
+        } else if (pic.src == "http://127.0.0.1:5500/imgs/ys.webp") {
+          pic.src = "http://127.0.0.1:5500/imgs/jinx.webp";
+        } else {
+          pic.src = "http://127.0.0.1:5500/imgs/ak.webp";
+        }
+      }, 2000);
+    </script>
+  </body>
+</html>
