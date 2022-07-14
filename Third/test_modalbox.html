@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模态框</title>
+    <style>
+      body {
+        background-color: aqua;
+      }
+      .btn {
+        width: 200px;
+        font-size: 36px;
+        margin: auto;
+        cursor: pointer;
+      }
+      .modal {
+        display: none;
+        width: 500px;
+        height: 360px;
+        /* margin: auto; */
+        left: 50%;
+        top: 50%;
+        background-color: pink;
+        position: fixed;
+        transform: translate(-50%, -50%);
+      }
+
+      .modal .q {
+        width: 24px;
+        height: 24px;
+        background: url(../imgs/ys.webp) no-repeat center;
+        background-size: 24px;
+        position: absolute;
+        top: 0;
+        left: 500px;
+        cursor: pointer;
+      }
+
+      input {
+        margin: 20px;
+        width: 360px;
+        height: 50px;
+      }
+
+      .title {
+        height: 50px;
+        cursor: move;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn">点击登录</div>
+    <div class="modal">
+      <div class="title"></div>
+      <div class="q"></div>
+      账号：<input type="text" /><br />
+      密码：<input type="password" />
+    </div>
+
+    <script>
+      var btn = document.querySelector(".btn");
+      var modal = document.querySelector(".modal");
+      var q = document.querySelector(".modal .q");
+      var title = document.querySelector(".title");
+      //   console.log(q)
+
+      q.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+
+      btn.addEventListener("click", function () {
+        modal.style.display = "block";
+      });
+
+      title.addEventListener("mousedown", function (e) {
+        var x = e.pageX - modal.offsetLeft;
+        var y = e.pageY - modal.offsetTop;
+        // console.log(x);
+        document.addEventListener("mousemove", move);
+        document.addEventListener("mouseup", function () {
+          document.removeEventListener("mousemove", move);
+        });
+        function move(e) {
+          modal.style.left = e.pageX - x + "px";
+          modal.style.top = e.pageY - y + "px";
+        }
+      });
+    </script>
+  </body>
+</html>

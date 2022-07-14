@@ -57,8 +57,38 @@
 + #### window.setTimeout(调用函数,延迟毫秒数)
         延迟时间到了调用函数
 
-+ #### window.clearTimeout(timeoutID)
++ #### window.clearTimeout(timer)
 
 + #### window.setInterval(调用函数,间隔时间)
         每隔间隔时间调用一次函数
 
++ #### window.clearInterval(timer)
+
+### location对象常见属性
+        location.href       url地址
+        location.host       主机（域名
+        location.port       端口
+        location.pathname   路径
+        locatio.search      返回参数
+        location.hash       返回片段
+
+### location对象常见方法
+        location.assign()   和href一样，可以跳转页面（重定向页面
+        location.replace()  替换当前页面，不记录历史，无法后退
+        location .reload()  重新加载页面
+
+## PC特效篇
+
+### offset
+        偏移量，动态获得元素的位置（偏移）、大小等
+        返回数值，不带单位
+        element.offsetParent    返回该元素带有定位的父级元素，都没有则返回body
+        element.offsetTop       返回该元素带有定位的父级元素顶部的偏移量
+        element.offsetLeft      返回该元素带有定位的父级元素左边的偏移量
+        element.offsetWidth     返回该元素宽度，包含padding，border
+        element.offsetHeight    返回该元素高度，包含padding，border
+
+### offset和style区别
+        offset可以得到任意样式表的样式值，style只能获得行内样式
+        style.width获得带有单位的字符串,不包含padding和border
+        style.width可以赋值，offset只能读取
