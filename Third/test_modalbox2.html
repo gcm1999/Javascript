@@ -19,18 +19,15 @@
         display: none;
         width: 500px;
         height: 360px;
-        /* margin: auto; */
-        left: 50%;
-        top: 50%;
         background-color: pink;
         position: absolute;
-        transform: translate(-50%, -50%);
+        cursor: move;
       }
 
       .modal .q {
         width: 24px;
         height: 24px;
-        background: url(../imgs/ys.webp) no-repeat center;
+        background: url("../imgs/ys.webp") no-repeat center;
         background-size: 24px;
         position: absolute;
         top: 0;
@@ -52,11 +49,22 @@
   </head>
   <body>
     <div class="btn">点击登录</div>
-    <div class="modal">
-      <div class="title"></div>
-      <div class="q"></div>
-      账号：<input type="text" /><br />
-      密码：<input type="password" />
+    <div
+      style="
+        height: 600px;
+        background-color: red;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="modal">
+        <div class="title"></div>
+        <div class="q"></div>
+        账号：<input type="text" /><br />
+        密码：<input type="password" />
+      </div>
     </div>
 
     <script>
@@ -74,17 +82,35 @@
         modal.style.display = "block";
       });
 
-      title.addEventListener("mousedown", function (e) {
+      modal.addEventListener("mousedown", function (e) {
         var x = e.pageX - modal.offsetLeft;
         var y = e.pageY - modal.offsetTop;
-        // console.log(x);
+
+        console.log(e, "123");
+        console.log(modal.offsetTop);
+        console.log(x, y);
+
         document.addEventListener("mousemove", move);
         document.addEventListener("mouseup", function () {
           document.removeEventListener("mousemove", move);
         });
         function move(e) {
-          modal.style.left = e.pageX - x + "px";
-          modal.style.top = e.pageY - y + "px";
+          // 获取当前窗口宽度
+          var windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+          if (e.pageX - x < 0) {
+            modal.style.left = "0px";
+          } else if (e.pageX - x > windowWidth - 500) {
+            modal.style.left = windowWidth - 500 +"px";
+          } else {
+            modal.style.left = e.pageX - x + "px";
+          }
+          if (e.pageY - y < 0) {
+            modal.style.top = "0px";
+          } else if (e.pageY - y > 240) {
+            modal.style.top = "240px";
+          } else {
+            modal.style.top = e.pageY - y + "px";
+          }
         }
       });
     </script>
