@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜</title>
+    <style>
+        .pro{
+            position: relative;
+        }
+        .pic{
+            width: 200px;
+            height: 200px;
+        }
+       
+        .kuang{
+            position: absolute;
+            background-color: yellow;
+            opacity: .5;
+            width: 100px;
+            height: 100px;
+            cursor: move;
+        }
+        .kuang2{
+            display: none;
+            position: absolute;
+            left: 220px;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .maxP{
+            width: 600px;
+            position: absolute;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="pro">
+        <div class="kuang"></div>
+        <div class="kuang2">
+            <img class="maxP" src="../imgs/ys.webp"></img>
+        </div>
+        
+        
+        <img class="pic" src="../imgs/ys.webp" alt="">
+    </div>
+    <script>
+        var kuang = document.querySelector('.kuang')
+        var pic = document.querySelector('.pic')
+        var maxP = document.querySelector('.maxP')
+        var kuang2 = document.querySelector('.kuang2')
+
+        kuang.addEventListener('mousedown',function(e){
+             var x = e.pageX - pic.offsetLeft;
+            var y = e.pageY - pic.offsetTop;
+            kuang2.style.display = 'block';
+
+
+            document.addEventListener('mousemove',move)
+            document.addEventListener('mouseup',function(){
+                kuang2.style.display = 'none';
+                document.removeEventListener('mousemove',move)
+            })
+
+
+            
+            function move(e){     
+
+            if(e.pageX - x < 0){
+                kuang.style.left = 0
+            }else if(e.pageX - x > 100){
+                kuang.style.left = 100 + 'px'
+            }else{
+            kuang.style.left = e.pageX - x + 'px';
+            maxP.style.left = (pic.offsetLeft - kuang.offsetLeft)*3 + 'px';  
+            }
+           
+            if(e.pageY - y < 0){
+                kuang.style.top = 0
+            }else if(e.pageY - y > 100){
+                kuang.style.top = 100 + 'px'
+            }else{
+                     // console.log(x);
+            kuang.style.top = e.pageY - y + 'px';
+            maxP.style.top = (pic.offsetTop - kuang.offsetTop)*3 + 'px'
+            }
+
+            }
+            
+        })
+    </script>
+</body>
+</html>
