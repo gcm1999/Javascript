@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .top{
+            width: 1080px;
+            margin: 20px auto;
+            height: 172px;
+            background-color: pink;
+        }
+        .banner{
+            width: 1080px;
+            margin: 20px auto;
+            height: 360px;
+            background-color: aqua;
+        }
+        .main{
+            width: 1080px;
+            margin: 20px auto;
+            height: 1092px;
+            background-color: burlywood;
+        }
+        .sliderbar{
+            position: absolute;
+            top: 300px;
+            right: 0;
+            width: 50px;
+            height: 200px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="sliderbar"></div>
+    <div class="top"></div>
+    <div class="banner"></div>
+    <div class="main"></div>
+    <script>
+        var sliderbar = document.querySelector('.sliderbar');
+        var banner = document.querySelector('.banner');
+        var bannerTop = banner.offsetTop;
+
+        // console.log(bannerTop);
+        document.addEventListener('scroll',function(){
+            // 元素被卷去的头部是element.scrollTop,页面被卷去的头部是pageYOffset
+            if(window.pageYOffset > bannerTop){
+                sliderbar.style.position = 'fixed';
+                sliderbar.style.top = 300 - bannerTop + 'px';
+            }else{
+                sliderbar.style.position = 'absolute';
+                sliderbar.style.top = '300px';
+            }
+        })
+    </script>
+</body>
+</html>

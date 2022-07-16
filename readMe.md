@@ -92,3 +92,23 @@
         offset可以得到任意样式表的样式值，style只能获得行内样式
         style.width获得带有单位的字符串,不包含padding和border
         style.width可以赋值，offset只能读取
+
+### client
+        element.clientWidth     返回该元素宽度，包含padding，不包含border
+        element.clientHeight    返回该元素高度，包含padding，不包含border
+
+### scroll
+        element.scrollTop       返回该元素带有定位的父级元素顶部的偏移量
+        element.scrollLeft      返回该元素带有定位的父级元素左边的偏移量
+        element.scrollWidth     返回该元素实际宽度，包含padding，不包含border
+        element.scrollHeight    返回该元素实际高度，包含padding，不包含border
+        元素被卷去的头部是element.scrollTop,页面被卷去的头部是pageYOffset
+
+### 立即执行函数
+        {function(){}}()        或者    (function(){}());
+
+### mouseover和mouseenter
+        鼠标经过
+        mouseover       冒泡
+        mouseenter      不冒泡（搭配mouseleave使用，同样不会冒泡
+
