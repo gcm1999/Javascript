@@ -26,7 +26,8 @@
   margin: auto;
   position: relative;
 }
-.banner ul {
+.banner .lunbo ul {
+  cursor: pointer;
   position: absolute;
   /* display: flex; */
   width: 3650px;
@@ -64,4 +65,22 @@
 .banner .btn_l:hover,
 .banner .btn_r:hover {
   background-color: #333333;
+}
+.banner .nav{
+  position: absolute;
+  list-style: none;
+  top:260px;
+  left: 600px;
+}
+.nav li{
+  width: 15px;
+  height: 15px;
+  border: 1px solid pink;
+  border-radius: 50%;
+  margin: 2px;
+  background-color: white;
+  cursor: pointer;
+}
+.banner .nav .current{
+  background-color: pink;
 }

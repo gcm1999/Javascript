@@ -23,7 +23,13 @@
           <li index="1"><img src="./imgs/pic2.jpg" alt="" /></li>
           <li index="2"><img src="./imgs/pic3.jpg" alt="" /></li>
           <li index="3"><img src="./imgs/pic4.jpg" alt="" /></li>
-          <li index="4"><img src="./imgs/pic1.jpg" alt="" /></li>
+          <li index="4"><img src="./imgs/pic5.jpg" alt="" /></li>
+          <li index="5"><img src="./imgs/pic6.jpg" alt="" /></li>
+          <li index="6"><img src="./imgs/pic7.jpg" alt="" /></li>
+          <li index="7"><img src="./imgs/pic8.jpg" alt="" /></li>
+          <li index="8"><img src="./imgs/pic9.jpg" alt="" /></li>
+
+          <!-- <li index="4"><img src="./imgs/pic1.jpg" alt="" /></li> -->
           <!-- <li><img src="./imgs/pic5.jpg" alt="" /></li>
           <li><img src="./imgs/pic6.jpg" alt="" /></li>
           <li><img src="./imgs/pic7.jpg" alt="" /></li>
@@ -31,42 +37,101 @@
           <li><img src="./imgs/pic9.jpg" alt="" /></li> -->
         </ul>
       </div>
+      <ul class="nav">
+        <!-- <li class="current"></li>
+        <li></li>
+        <li></li>
+        <li></li> -->
+      </ul>
     </div>
 
     <script>
       var btn_l = document.querySelector(".btn_l");
       var btn_r = document.querySelector(".btn_r");
       var ul = document.querySelector(".banner ul");
+      var lb = document.querySelector(".lunbo");
+      var nav = document.querySelector(".banner .nav");
+      var banner = document.querySelector(".banner");
+      var target = lb.clientWidth;
       var index = 0;
+      ul.style.width = (ul.children.length+1) * 730 + 'px';
 
       console.log(btn_l);
 
-      btn_l.addEventListener("click", function () {
-        if (index == 3) {
-          animation(ul, ul.offsetLeft - 730, function () {
-            ul.style.left = 0 + "px";
+      for (var i = 0; i < ul.children.length; i++) {
+        var li = document.createElement("li");
+        li.setAttribute("num", i);
+        nav.appendChild(li);
+        li.addEventListener('click',function(){
+          for(i=0; i<nav.children.length; i++){
+            nav.children[i].className = '';
+          }
+          this.className = 'current';
+          var num = this.getAttribute('num');
+          index = num;
+          console.log(num);
+          animation(ul,-num*target)
+        })
+      }
+      nav.children[0].className = "current";
+
+      var first = ul.children[0].cloneNode(true);
+      ul.append(first)
+
+      btn_r.addEventListener("click", function () {
+        if (index == (ul.children.length-2)) {
+          animation(ul, ul.offsetLeft - target, function () {
+            ul.style.left = 0;
           });
 
           index = 0;
         } else {
-          animation(ul, ul.offsetLeft - 730);
+          animation(ul, ul.offsetLeft - target);
           index++;
-          console.log(index);
+          // console.log(index);
+        }
+        for (i = 0; i < nav.children.length; i++) {
+          if (i == index) {
+            nav.children[i].className = "current";
+          } else {
+            nav.children[i].className = "";
+          }
         }
       });
 
-      btn_r.addEventListener("click", function () {
+      btn_l.addEventListener("click", function () {
         if (index == 0) {
-          ul.style.left = -2920 + "px";
-          animation(ul, ul.offsetLeft + 730);
+          ul.style.left = -target * (ul.children.length-1) + "px";
+          animation(ul, ul.offsetLeft + target);
 
-          index = 3;
+          index = ul.children.length-2;
         } else {
-          animation(ul, ul.offsetLeft + 730);
+          animation(ul, ul.offsetLeft + target);
           index--;
-          console.log(index);
+          // console.log(index);
+        }
+        for (i = 0; i < nav.children.length; i++) {
+          if (i == index) {
+            nav.children[i].className = "current";
+          } else {
+            nav.children[i].className = "";
+          }
         }
       });
+
+      var timer = setInterval(function () {
+        btn_r.click();
+      }, 2000);
+      banner.addEventListener('mouseover',function(){
+        console.log(5);
+        clearInterval(timer);
+        timer = numm;
+      })
+      banner.addEventListener('mouseleave',function(){
+        timer = setInterval(function () {
+        btn_r.click();
+      }, 2000);
+      })
     </script>
   </body>
 </html>
