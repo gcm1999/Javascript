@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动画效果</title>
+    <style>
+      * {
+        background-color: antiquewhite;
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      .test {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+      button {
+        width: 50px;
+        height: 25px;
+        background-color: aqua;
+        cursor: pointer;
+      }
+
+      .a {
+        position: fixed;
+        right: 0;
+        width: 25px;
+        height: 25px;
+        background-color: aqua;
+      }
+      .b {
+        position: absolute;
+        height: 25px;
+        width: 200px;
+        left: 0;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test"></div>
+    <button>500</button>
+    <button>800</button>
+    <div class="a">
+      <div class="b"></div>
+    </div>
+
+    <script>
+      var test = document.querySelector(".test");
+      var btn = document.querySelectorAll("button");
+
+      var a = document.querySelector(".a");
+      var b = document.querySelector(".b");
+      a.addEventListener("mouseenter", function () {
+        animation(b, -200);
+      });
+      a.addEventListener("mouseleave", function () {
+        animation(b, 200);
+      });
+
+      //   console.log(Math.ceil(7.5));
+      //   console.log(Math.ceil(-7.5));
+      //   console.log(Math.floor(-7.5));
+
+      function animation(obj, target, callback) {
+
+        clearInterval(obj.timer);
+
+        // var timer = window.setInterval(function(){
+
+        obj.timer = setInterval(function () {
+          var step = (target - obj.offsetLeft) / 10;
+          step = step > 0 ? Math.ceil(step) : Math.floor(step);
+
+          if (obj.offsetLeft == target) {
+            console.log(obj.offsetLeft + "ed");
+            window.clearInterval(obj.timer);
+            if (callback) {
+              callback();
+            }
+          } else {
+            console.log(target);
+            console.log(obj.offsetLeft + "ing" + step);
+            obj.style.left = obj.offsetLeft + step + "px";
+          }
+        }, 15);
+      }
+
+      btn[0].addEventListener("click", function () {
+        animation(test, 500);
+      });
+      btn[1].addEventListener("click", function () {
+        animation(test, 800, function () {
+          // alert('hello')
+        });
+      });
+
+      animation(test, 300);
+      //   window.setInterval(function animation() {
+      //     if (test.offsetLeft > 300) {
+      //       window.clearInterval(animation);
+      //       console.log(test.offsetLeft);
+      //     }
+      //     test.style.left = test.offsetLeft + 1 + "px";
+      //   }, 30);
+    </script>
+  </body>
+</html>
