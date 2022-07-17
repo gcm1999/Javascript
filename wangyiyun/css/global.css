@@ -16,17 +16,20 @@
   max-width: 1920px;
   height: 285px;
   background-color: pink;
+  position: relative;
 }
 
-.banner > div {
-  position: relative;
-
+.banner .lunbo {
+  overflow: hidden;
+  height: 285px;
   width: 730px;
   margin: auto;
+  position: relative;
 }
 .banner ul {
+  position: absolute;
   /* display: flex; */
-  width: 2920px;
+  width: 3650px;
   list-style: none;
 }
 .banner ul li {
@@ -42,7 +45,7 @@
   background: url(../imgs/向左箭头.png) no-repeat center;
   position: absolute;
   background-size: 37px;
-  left: -74px;
+  left: 520px;
   top: 111px;
   z-index: 2;
   cursor: pointer;
@@ -53,12 +56,12 @@
   background: url(../imgs/向右箭头.png) no-repeat center;
   position: absolute;
   background-size: 37px;
-  left: 767px;
+  left: 1360px;
   top: 111px;
   z-index: 2;
   cursor: pointer;
 }
 .banner .btn_l:hover,
-.banner .btn_r:hover{
-    background-color: #333333;
+.banner .btn_r:hover {
+  background-color: #333333;
 }

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>网易云</title>
     <link rel="stylesheet" href="./css/global.css" />
+    <script src="./js/animation.js"></script>
   </head>
   <body>
     <div class="top">
@@ -14,14 +15,15 @@
     </div>
 
     <div class="banner">
-      <div>
-        <div class="btn_l"></div>
-        <div class="btn_r"></div>
+      <div class="btn_l"></div>
+      <div class="btn_r"></div>
+      <div class="lunbo">
         <ul>
-          <li><img src="./imgs/pic1.jpg" alt="" /></li>
-          <li><img src="./imgs/pic2.jpg" alt="" /></li>
-          <li><img src="./imgs/pic3.jpg" alt="" /></li>
-          <li><img src="./imgs/pic4.jpg" alt="" /></li>
+          <li index="0"><img src="./imgs/pic1.jpg" alt="" /></li>
+          <li index="1"><img src="./imgs/pic2.jpg" alt="" /></li>
+          <li index="2"><img src="./imgs/pic3.jpg" alt="" /></li>
+          <li index="3"><img src="./imgs/pic4.jpg" alt="" /></li>
+          <li index="4"><img src="./imgs/pic1.jpg" alt="" /></li>
           <!-- <li><img src="./imgs/pic5.jpg" alt="" /></li>
           <li><img src="./imgs/pic6.jpg" alt="" /></li>
           <li><img src="./imgs/pic7.jpg" alt="" /></li>
@@ -30,5 +32,41 @@
         </ul>
       </div>
     </div>
+
+    <script>
+      var btn_l = document.querySelector(".btn_l");
+      var btn_r = document.querySelector(".btn_r");
+      var ul = document.querySelector(".banner ul");
+      var index = 0;
+
+      console.log(btn_l);
+
+      btn_l.addEventListener("click", function () {
+        if (index == 3) {
+          animation(ul, ul.offsetLeft - 730, function () {
+            ul.style.left = 0 + "px";
+          });
+
+          index = 0;
+        } else {
+          animation(ul, ul.offsetLeft - 730);
+          index++;
+          console.log(index);
+        }
+      });
+
+      btn_r.addEventListener("click", function () {
+        if (index == 0) {
+          ul.style.left = -2920 + "px";
+          animation(ul, ul.offsetLeft + 730);
+
+          index = 3;
+        } else {
+          animation(ul, ul.offsetLeft + 730);
+          index--;
+          console.log(index);
+        }
+      });
+    </script>
   </body>
 </html>
