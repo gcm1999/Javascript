@@ -112,3 +112,24 @@
         mouseover       冒泡
         mouseenter      不冒泡（搭配mouseleave使用，同样不会冒泡
 
+## 本地存储
+### window.sessionStorage
+        生命周期：关闭浏览器窗口，在同一个窗口（页面）数据可以共享，键值对形式存储
+        sessionStorage.setItem(key,value)       增
+        sessionStorage.removeItem(key)          删
+        sessionStorage.geyItem(key,value)       查
+        sessionStorage.clear()                  删除所有
+### window.localStorage
+        生命周期：永久生效，需要手动删除，键值对形式存储
+        localStorage.setItem(key,value)       增
+        localStorage.removeItem(key)          删
+        localStorage.geyItem(key,value)       查
+        localStorage.clear()                  删除所有
+
+# ES6
+## let和const
+        没有变量提升，块作用域，不会污染全局变量，不能重复声明，const声明后无法修改
+
+## 箭头函数
+        let fn = () => ();
+        箭头函数没有this指向，内部this值只能通过查找作用域链来确定，不能通过new来实例化对象

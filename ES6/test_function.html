@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <script>
+
+        let PageHandle = {
+        id: 123,
+        init: function(){
+        //   document.addEventListener("click", function (e) {
+        //     // this.do(e.type);
+        //     PageHandle.do(e.type);
+        //   });
+
+        
+          document.addEventListener("click", (e) => {
+            // 箭头函数没有this指向，内部this值只能通过查找作用域链来确定，此时this指向PageHandle
+            console.log(this);
+            this.do(e.type);
+            // PageHandle.do(e.type);
+          });
+        },
+        do: function (type) {
+          console.log(`事件类型:${type},当前id:${this.id}`);
+        },
+      };
+      PageHandle.init();
+
+      let gcm = 'gcm';
+    //   console.log(window.gcm);
+    console.log(gcm);
+
+    </script>
+</body>
+</html>

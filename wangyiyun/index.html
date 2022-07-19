@@ -54,7 +54,7 @@
       var banner = document.querySelector(".banner");
       var target = lb.clientWidth;
       var index = 0;
-      ul.style.width = (ul.children.length+1) * 730 + 'px';
+      ul.style.width = (ul.children.length + 1) * 730 + "px";
 
       console.log(btn_l);
 
@@ -62,55 +62,69 @@
         var li = document.createElement("li");
         li.setAttribute("num", i);
         nav.appendChild(li);
-        li.addEventListener('click',function(){
-          for(i=0; i<nav.children.length; i++){
-            nav.children[i].className = '';
+        li.addEventListener("click", function () {
+          for (i = 0; i < nav.children.length; i++) {
+            nav.children[i].className = "";
           }
-          this.className = 'current';
-          var num = this.getAttribute('num');
+          this.className = "current";
+          var num = this.getAttribute("num");
           index = num;
           console.log(num);
-          animation(ul,-num*target)
-        })
+          animation(ul, -num * target);
+        });
       }
       nav.children[0].className = "current";
 
       var first = ul.children[0].cloneNode(true);
-      ul.append(first)
+      ul.append(first);
 
+      var flag = true;
       btn_r.addEventListener("click", function () {
-        if (index == (ul.children.length-2)) {
-          animation(ul, ul.offsetLeft - target, function () {
-            ul.style.left = 0;
-          });
+        if (flag) {
+          // flag = false;节流
+          if (index == ul.children.length - 2) {
+            animation(ul, ul.offsetLeft - target, function () {
+              flag = true;
+              ul.style.left = 0;
+            });
 
-          index = 0;
-        } else {
-          // animation(ul, ul.offsetLeft - target);
-          index++;
-          animation(ul,-index*target)
-          // console.log(index);
-        }
-        for (i = 0; i < nav.children.length; i++) {
-          if (i == index) {
-            nav.children[i].className = "current";
+            index = 0;
           } else {
-            nav.children[i].className = "";
+            // animation(ul, ul.offsetLeft - target);
+            index++;
+            animation(ul, -index * target, function () {
+              flag = true;
+            });
+            // console.log(index);
+          }
+          for (i = 0; i < nav.children.length; i++) {
+            if (i == index) {
+              nav.children[i].className = "current";
+            } else {
+              nav.children[i].className = "";
+            }
           }
         }
       });
 
       btn_l.addEventListener("click", function () {
-        if (index == 0) {
-          ul.style.left = -target * (ul.children.length-1) + "px";
-          animation(ul, ul.offsetLeft + target);
+        if(flag){
+          // flag = false;
+          if (index == 0) {
+          ul.style.left = -target * (ul.children.length - 1) + "px";
+          // animation(ul, ul.offsetLeft + target);
 
-          index = ul.children.length-2;
+          index = ul.children.length - 2;
+          animation(ul, -index * target, function(){
+            flag = true;
+          });
         } else {
           // animation(ul, ul.offsetLeft + target);
           index--;
-          animation(ul,-index*target)
-          
+          animation(ul, -index * target,function(){
+            flag = true;
+          });
+
           // console.log(index);
         }
         for (i = 0; i < nav.children.length; i++) {
@@ -119,22 +133,23 @@
           } else {
             nav.children[i].className = "";
           }
+        }
         }
       });
 
       var timer = setInterval(function () {
         btn_r.click();
       }, 2000);
-      banner.addEventListener('mouseover',function(){
+      banner.addEventListener("mouseover", function () {
         console.log(5);
         clearInterval(timer);
         timer = numm;
-      })
-      banner.addEventListener('mouseleave',function(){
+      });
+      banner.addEventListener("mouseleave", function () {
         timer = setInterval(function () {
-        btn_r.click();
-      }, 2000);
-      })
+          btn_r.click();
+        }, 2000);
+      });
     </script>
   </body>
 </html>
