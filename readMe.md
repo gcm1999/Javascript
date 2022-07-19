@@ -133,3 +133,7 @@
 ## 箭头函数
         let fn = () => ();
         箭头函数没有this指向，内部this值只能通过查找作用域链来确定，不能通过new来实例化对象
+
+## 对象的方法
+        Object.is(obj1,obj2)    比较两个值是否严格相等
+        Object.assign(target,obj1,obj2...)      合并对象
