@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>生成器</title>
+    <script src="../jQuery3.6.0.js"></script>
+  </head>
+  <body>
+    <script>
+    //   let url =
+    //     "https://free-api.heweather.net/s6/weather/now?location=beijing&key=4693ff5ea653469f8bb0c29638035976";
+
+      //   $.ajax({
+      //     url:url,
+      //     method: "get",
+      //     success(msg) {
+      //       console.log(msg);
+      //     },
+      //   });
+
+      //   function* add() {
+
+      //     let a = yield 2;
+      //     // console.log(a);
+      //     let b = yield 3;
+
+      //     // console.log(b);
+      //     let c = yield 4;
+
+      //     // console.log(c);
+      //     yield a + b + c;
+      //   }
+      //   let fn = add();
+      //   console.log(fn.next());
+      //   console.log(fn.next(10));
+      //   console.log(fn.next(20));
+      //   console.log(fn.next());
+
+      //   function* aj() {
+      //     let msg1 = yield requestW(url);
+      //     console.log(msg1);
+      //     let msg2 = yield requestW(url);
+      //     console.log(msg2);
+      //     let msg3 = yield requestW(url);
+      //     console.log(msg3);
+      //     console.log("ok");
+      //   }
+
+      //   let ite = aj();
+      //   console.log(ite.next());
+
+      //   function requestW(url) {
+      //     $.ajax({
+      //       url: url,
+      //       method: "get",
+      //       success(msg) {
+      //         // console.log(msg);
+      //         console.log(ite.next(msg));
+      //       },
+      //     });
+      //   }
+
+      function* Fn() {
+        let num1 = yield getNum(1);
+        console.log(num1);
+        let num2 = yield getNum(2);
+        console.log(num2);
+
+        let num3 = yield getNum(3);
+        console.log(num3);
+
+        let num4 = yield getNum(4);
+        console.log(num4);
+      }
+
+      let fn = Fn();
+      console.log(fn.next());
+
+      function getNum(n) {
+        document.addEventListener("click", function d() {
+          console.log(fn.next(n));
+          document.removeEventListener("click", d);
+        });
+      }
+    </script>
+  </body>
+</html>
