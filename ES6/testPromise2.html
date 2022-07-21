@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promise</title>
+  </head>
+  <body>
+    <script>
+      //   const url =
+      //     "https://free-api.heweather.net/s6/weather/now?location=beijing&key=4693ff5ea653469f8bb0c29638035976";
+
+      //   function getJSON(url) {
+      //     return new Promise((resolve, reject) => {
+      //       const xhr = new XMLHttpRequest();
+      //       xhr.open("GET", url);
+      //       xhr.onreadystatechange = handle;
+
+      //       xhr.responseType = "json";
+      //       xhr.setRequestHeader("Accpet", "application/json");
+      //       xhr.send();
+
+      //       function handle() {
+      //         console.log(this);
+      //       }
+      //     });
+      //   }
+
+      //   getJSON(url).then(
+      //     (data) => {
+      //       console.log(data);
+      //     },
+      //     (err) => {
+      //       console.log(err);
+      //     }
+      //   );
+
+      //   let pro = new Promise((resolve, reject) => {
+      //     // resolve("sucessed");
+      //     reject('failed')
+      //   });
+      // //   pro();
+      //   pro.then(resolve=>{
+      //     console.log(resolve);
+      //   }).catch(err=>{
+      //     console.log(err);
+      //   });
+
+      //   function timeout(ms) {
+      //     return new Promise((resolve, reject) => {
+      //       setTimeout(resolve, ms, "done");
+      //     });
+      //   }
+
+      //   timeout(3000).then((value) => {
+      //     console.log(value);
+      //   });
+
+      let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("p1"), 1000);
+      });
+      let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("p2"), 2000);
+      });
+      let p3 = new Promise((resolve, reject) => {
+        setTimeout(() => reject("p3err"), 2000);
+        setTimeout(() => resolve("p3"), 3000);
+      });
+
+      p4 = Promise.all([p1,p2,p3])
+      p5 = Promise.race([p1,p2,p3])
+
+    //   Promise.race([p1, p2, p3]).
+    //   then((v) => console.log(v)).
+    //   catch(err=>console.log(err));
+      p4.then((v) => console.log(v)).catch(err=>console.log(err));
+      p5.then((v) => console.log(v)).catch(err=>console.log(err));
+
+    </script>
+  </body>
+</html>

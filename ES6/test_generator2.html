@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generator</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        function* fn(){
+            console.log('ok');
+        }
+
+        let a = fn;
+        a().next();
+        // setTimeout(()=>console.log(a().next()),2000)
+
+        let obj = {
+            name:'gcm',
+            age:24,
+            gender:1
+        }
+
+        obj[Symbol.iterator] = function* (){
+            yield 'name:' + this.name;
+            yield 'age:' + this.age;
+            yield 'gender:' + this.gender;
+        }
+        for(o of obj){
+            console.log(o);
+        }
+
+    </script>
+</body>
+</html>
