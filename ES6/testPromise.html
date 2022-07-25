@@ -8,20 +8,18 @@
   </head>
   <body>
     <script>
-      let pro = new Promise(function (resolve, reject) {
-        let res = {
-          code: 200,
-          data: {
-            name: "gcm",
-          },
-          error: "失败",
-        };
-
-        // resolve(res.data);
-        reject(res.error);
-      });
-
-      console.log(pro);
+        let pro = new Promise(function (resolve, reject) {
+          let res = {
+            code: 200,
+            data: {
+              name: "gcm",
+            },
+            error: "失败",
+          };
+          resolve(res);
+          // reject(res.error);
+        });
+      
 
       pro.then(data => {
         console.log(data);
@@ -29,7 +27,24 @@
         console.log(err);
       })
 
-       console.log(pro);
+      console.log(pro);
+
+      async function dd() {
+        let res = await new Promise(function (resolve, reject) {
+          let res = {
+            code: 200,
+            data: {
+              name: "gcm",
+            },
+            error: "失败",
+          };
+          resolve(res);
+          // reject(res.error);
+        });
+        console.log(res.data);
+      }
+
+      dd()
     </script>
   </body>
 </html>
