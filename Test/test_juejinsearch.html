@@ -10,12 +10,15 @@
     <div class="box">
       <input class="search" type="text" placeholder="探索稀土掘金" />
       <div class="gosearch">
-        <img src="../imgs/sousuo.png" alt="" />
+        <!-- <img src="../imgs/sousuo.png" alt="" /> -->
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-sousuo"></use>
+        </svg>
       </div>
       <div class="search-history">
         <div class="history-header">
-            <span>搜索历史</span>
-            <span>清空</span>
+          <span>搜索历史</span>
+          <span>清空</span>
         </div>
         <ul>
           <li>js实现背景音乐</li>
@@ -26,6 +29,7 @@
         </ul>
       </div>
     </div>
+    <script src="./iconfont.js"></script>
     <script>
       let box = document.querySelector(".box");
       let search = document.querySelector(".search");
@@ -35,6 +39,8 @@
         box.style.width = 500 + "px";
         box.style.border = "1px solid rgb(30,128,255)";
         gosearch.style.backgroundColor = "rgb(234,242,255)";
+        gosearch.style.color = "rgb(30,128,255)";
+
         searchhistory.style.display = "block";
       });
       search.addEventListener("blur", () => {
@@ -42,10 +48,19 @@
         box.style.border = "1px solid #ccc";
         gosearch.style.backgroundColor = "rgb(242, 243, 245)";
         searchhistory.style.display = "none";
+        gosearch.style.color = "black";
+
       });
     </script>
   </body>
   <style>
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
     * {
       padding: 0;
       margin: 0;
@@ -73,24 +88,24 @@
       top: 38px;
       display: none;
     }
-    .history-header{
-        display: flex;
-        font-size: 12px;
-        justify-content: space-between;
-        padding: 0 12px;
+    .history-header {
+      display: flex;
+      font-size: 12px;
+      justify-content: space-between;
+      padding: 0 12px;
     }
-    .history-header span:nth-of-type(1){
-        color: #ccc;
+    .history-header span:nth-of-type(1) {
+      color: #ccc;
     }
-    .history-header span:nth-of-type(2){
-        color: rgb(30,128,255);
+    .history-header span:nth-of-type(2) {
+      color: rgb(30, 128, 255);
     }
     .search-history ul li {
       font-size: 14px;
       padding: 0 10px;
     }
     .search-history ul li:hover {
-      background-color: rgb(239,242,245);
+      background-color: rgb(239, 242, 245);
     }
     .search {
       outline: none;
@@ -105,11 +120,13 @@
       background-color: rgb(242, 243, 245);
       margin: 2px;
       border-radius: 5px;
-      padding: 0 5px;
+      padding: 0 15px;
+      font-size: 16px;
+      align-content: center;
     }
-    .gosearch img {
+    /* .gosearch img {
       width: 20px;
       margin: 8px;
-    }
+    } */
   </style>
 </html>
