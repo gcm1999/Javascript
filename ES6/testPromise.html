@@ -8,43 +8,53 @@
   </head>
   <body>
     <script>
-        let pro = new Promise(function (resolve, reject) {
-          let res = {
-            code: 200,
-            data: {
-              name: "gcm",
-            },
-            error: "失败",
-          };
-          resolve(res);
-          // reject(res.error);
-        });
-      
+      let pro = new Promise(function (resolve, reject) {
+        let res = {
+          code: 200,
+          data: {
+            name: "gcm",
+          },
+          error: "失败",
+        };
+        resolve(res);
+        // reject(res.error);
+      });
 
-      pro.then(data => {
-        console.log(data);
-      },err => {
-        console.log(err);
-      })
+      // pro.resolve("ok")
+
+      // pro.then(
+      //   (data) => {
+      //     console.log(data);
+      //   },
+      //   (err) => {
+      //     console.log(err);
+      //   }
+      // );
+
+      
 
       console.log(pro);
 
-      async function dd() {
-        let res = await new Promise(function (resolve, reject) {
-          let res = {
-            code: 200,
-            data: {
-              name: "gcm",
-            },
-            error: "失败",
-          };
-          resolve(res);
-          // reject(res.error);
-        });
-        console.log(res.data);
-      }
+      setTimeout(() => {
+        console.log(pro);
+      }, 2000);
 
-      dd()
+      // async function dd() {
+      //   let res = await new Promise(function (resolve, reject) {
+      //     let res = {
+      //       code: 200,
+      //       data: {
+      //         name: "gcm",
+      //       },
+      //       error: "失败",
+      //     };
+      //     resolve(res);
+      //     // reject(res.error);
+      //   });
+      //   console.log(res.data);
+      // }
+
+      // dd()
     </script>
   </body>
 </html>
