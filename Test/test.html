@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">防抖</button>
+    <script>
+      function success(e) {
+        console.log("防抖一次");
+      }
+
+      //当点击一次时，过两秒在出现，如果在两秒还没跑完就重新点击一次，又会产生新的定时器
+      // 因为产生新的定时器会覆盖之前的定时器，
+      // 所以需要清除定时器，这样只会运行最后一次定时器产生的效果
+
+      function fangdou(fn, deary) {
+        let timer = null;
+        return (...args) => {
+          console.log(args);
+          console.log(arguments);
+          console.log(1212);
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            fn.apply(this);
+          }, deary);
+        };
+      }
+      const fandouall = fangdou(success, 2000);
+      //   let btn = document.getElementById("btn");
+      //   btn.addEventListener("click", fandouall(1,2,3,4,5));
+      fandouall(1,2,3,4,5,6,667);
+    </script>
+  </body>
+</html>
