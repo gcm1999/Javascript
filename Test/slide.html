@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>简单的JS基础幻灯片</title>
+	<link rel="stylesheet" type="text/css" href="js.css">
+</head>
+
+<body>
+	<style>
+		#point li {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			background: #ccc;
+			cursor: pointer;
+		}
+
+		#point li.active {
+			background: red;
+		}
+
+		.slide {
+			position: relative;
+		}
+
+		#point {
+			position: absolute;
+			bottom: 10px;
+			left: 100px;
+		}
+	</style>
+	<div class="slide">
+		<ul>
+			<li style="display: block;">
+				<img src="1.jpg">
+			</li>
+			<li><img src="2.jpg"></li>
+			<li><img src="3.jpg"></li>
+			<li><img src="4.jpg"></li>
+			<li><img src="5.jpg"></li>
+		</ul>
+		<span class="pre">
+			< </span>
+				<span class="next"> > </span>
+
+				<div id="point">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</div>
+	</div>
+</body>
+
+</html>
