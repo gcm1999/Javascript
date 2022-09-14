@@ -1,0 +1,120 @@
+body {
+  background-color: rgb(238, 238, 238);
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+  }
+}
+.header {
+  padding-left: 0;
+  font-size: 18px;
+}
+.logo a {
+  display: inline-block;
+  width: 100%;
+  background-color: rgb(255, 94, 82);
+  /* margin-right: 10px; */
+}
+.logo img {
+  width: 100%;
+}
+.header ul a {
+  display: inline-block;
+  background-color: rgb(246, 246, 246);
+  color: black;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding: 12px 25px;
+}
+.header ul a:hover {
+  list-style: none;
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.search {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin: 0;
+  width: 100%;
+  padding: 30px 10px;
+  background-color: rgb(246, 246, 246);
+}
+.search input:nth-of-type(1) {
+  float: left;
+  font-size: 14px;
+  outline: none;
+  border-width: 1px;
+  border: 1px solid #ddd;
+  padding: 5px 5px 5px 10px;
+  width: 112px;
+}
+.search input:nth-of-type(2) {
+  font-size: 14px;
+  background-color: rgb(254, 117, 107);
+  color: white;
+  border: 0;
+  padding: 7px 6px 5px 10px;
+}
+
+.content ul li {
+  /* margin: 5px; */
+  float: left;
+  /* display: inline-block; */
+  padding: 10px 0px 0 10px;
+  width: 25%;
+  position: relative;
+}
+.content ul li a {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+.content ul li:nth-of-type(1) {
+  width: 50%;
+}
+
+.content ul li img {
+  height: 128px;
+  width: 100%;
+}
+.content ul li:nth-of-type(1) img {
+  height: 266px;
+}
+.content ul li a::after {
+  content: attr(msg);
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 10px 0;
+  font-size: 12px;
+  transition: all 0.6s;
+}
+.content ul li:nth-of-type(1) a::after {
+  line-height: 34px;
+  font-size: 16px;
+}
+.content ul li:hover a::before {
+  background-color: rgba(254, 108, 95);
+}
+.sidebar{}
+.sidebar img{
+  width: 100%;
+  margin: 5px;
+}

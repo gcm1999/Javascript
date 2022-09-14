@@ -1,0 +1,51 @@
+{
+  "id": "3646559",
+  "name": "alibaixiu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3841004",
+      "name": "科技",
+      "font_class": "keji",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "12037061",
+      "name": "生活",
+      "font_class": "shenghuo",
+      "unicode": "e75a",
+      "unicode_decimal": 59226
+    },
+    {
+      "icon_id": "5483412",
+      "name": "椰子树",
+      "font_class": "yezishu",
+      "unicode": "e6e0",
+      "unicode_decimal": 59104
+    },
+    {
+      "icon_id": "3783393",
+      "name": "礼物",
+      "font_class": "liwu",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "3858879",
+      "name": "美食",
+      "font_class": "meishi",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "18564923",
+      "name": "新闻",
+      "font_class": "xinwen",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    }
+  ]
+}
