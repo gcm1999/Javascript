@@ -9,7 +9,18 @@
   <body>
     <script>
       let arr = [1, 2, 4, 3, 53, 1, 3];
+      let obj = {name:"gg",age:55,mm:66};
+      // obj.[Symbol["iterator"]] = 
       let ite = arr[Symbol["iterator"]]();
+      // let ite2 = obj[Symbol["iterator"]]();
+      console.log(ite.next());
+      console.log(ite.next());
+      console.log(ite.next());
+      console.log(ite.next());
+      console.log(ite.next());
+      console.log(ite.next());
+      console.log(ite.next());
+      console.log(ite.next());
       console.log(ite.next());
       console.log(arr);
     </script>
